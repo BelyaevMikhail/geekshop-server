@@ -32,11 +32,7 @@ def register(request):
             return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegisterForm()
-    context = {
-        'title': 'GeekShop - Личный кабинет',
-        'form': form,
-        'baskets': Basket.objects.all(),
-    }
+    context = {'title': 'GeekShop - Регистрация', 'form': form}
     return render(request, 'authapp/register.html', context)
 
 
@@ -52,6 +48,7 @@ def profile(request):
     context = {
         'title': 'GeekShop - Личный кабинет',
         'form': form,
+        'baskets': Basket.objects.all(),
     }
     return render(request, 'authapp/profile.html', context)
 
